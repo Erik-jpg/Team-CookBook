@@ -1,31 +1,32 @@
 // console.log("hello world")
 const saveBtn = document.querySelector(".button");
 const deleteBtn = document.querySelector(".is-danger");
-const form = document.querySelector(".card");
+let form = document.querySelector(".card");
 const form1 = document.querySelector(".card1");
 const h2 = document.querySelector("h2");
 const recipeInput = document.querySelector(".card");
 const getButton = document.querySelector('.is-link');
-// const h1 = document.querySelector('h2');
-// // const personalGreeting = document.querySelector('.personal-greeting');
+let recipe = {};
+// function handleRecipe(form) {
+//     form.document.writeIn(textarea);
+// }
 
-// // Stop the form from submitting when a button is pressed
-// saveBtn.addEventListener("click", function (e) {
+let recipe_serialized = JSON.stringify(recipe);
+localStorage.setItem('recipe', recipe_serialized);
+let recipe_deserialized = JSON.stringify(localStorage.getItem('recipe'));
+console.log(recipe_deserialized);
+
     function recipeDisplayCheck() {
         if (localStorage.getItem("recipe")) {
             let recipe = localStorage.getItem("recipe");
             form1.textContent = "Your, " + recipe
             }};
-// });
-//   // run function when the 'Say hello' button is clicked
 saveBtn.addEventListener("click", function (e) {
     e.preventDefault();
     console.log("form");
-    //     // store the entered name in web storage
+    //     // store the entered recipe in web storage
     localStorage.setItem("recipe", recipeInput.value);
-    //     // run nameDisplayCheck() to sort out displaying the
-    //     // personalized greetings and updating the form display
-    recipeDisplayCheck();
+    // handleRecipe();
 });
 //Make another localstorage setItem "users recipes" save an array of user's recipes, can call up array with recipe names. When page loads, populate the array how you want them to see it, set array as buttons, that allow the user to select it (for loop to add buttons)
 //save info of recipe use javascript to show. use for loop to match measurement ingredients 

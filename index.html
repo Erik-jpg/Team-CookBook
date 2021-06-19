@@ -11,8 +11,16 @@
 <body>
     <h1>CookBook App!</h1>
     <h2>Your recipes here.</h2>
-    <textarea class="textarea card" id="recipeCards" placeholder="save your recipes here..."></textarea><a class="button is-primary">Save</a><a class="button is-link">Grab a Recipe</a><a class="button is-danger">Delete</a></a>
-<textarea class="textarea card1" id="recipeCards-1" placeholder="delete your recipes here..."></textarea>
+    <textarea class="textareaCard" id="recipeCards" placeholder="save your recipes here..."></textarea>
+    <a class="button is-primary" onclick="javascript:eraseText();">Save</a>
+    <a class="button is-link"onclick="javascript:eraseText();">Grab a Recipe</a>
+    <a class="button is-danger"onclick="javascript:eraseText();">Delete</a></a>
+<textarea class="textareaCard1" id="recipeCards-1" placeholder="retrieved recipes will be displayed here..."></textarea>
+<div id="recipeRolledex" class="RecipeStorage">
+    <p id="recipeCard0">This is a demo recipeCards</p>
+    <p id="recipeCard1">This is a demo recipeCards</p>
+    <p id="recipeCards-2">This is a demo recipeCards</p>
+</div>
     <script src =script.js></script>
 </body>
 </html>
