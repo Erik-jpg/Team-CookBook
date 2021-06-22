@@ -1,4 +1,4 @@
-console.log("hello world")
+
 
 $(".searchBox").submit(eventhandler);
 function eventhandler(event){
