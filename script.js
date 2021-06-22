@@ -25,8 +25,8 @@ function getRecipe(event) {
         var allIngredients = document.createElement("button") 
         var missedIngredients = recipe.missedIngredients 
     
-        recipeListCard.classlist = "card"
-        recipeListBody.classList = "has-background-light" 
+        recipeListCard.classList = "column is-one-third"
+        recipeListBody.classList = "has-background-light pl-6" 
         recipeListTitle.classList = "title" 
         recipeInstructions.classList = "button" 
         allIngredients.classList = "button"
@@ -67,7 +67,7 @@ function getRecipe(event) {
                 console.log(info) 
                 var cookingInstructions = document.createElement("h5") 
 
-                cookingInstructions.classList = "container" 
+                cookingInstructions.classList = "is-half" 
 
                 cookingInstructions.textContent = info.instructions
 
@@ -125,11 +125,8 @@ function getRecipe(event) {
                     recipeListBody.appendChild(unitMeasureNumber) 
                     unitMeasureNumber.appendChild(unitMeasure)
                     unitMeasureNumber.appendChild(specificIngredient)
-                    
-                    
                 }
             })
-
         }
         //console.log(recipe.missedIngredients[0].name)
         missedIngredients.forEach(function(ingredient){
@@ -141,9 +138,7 @@ function getRecipe(event) {
 
             recipeListBody.appendChild(recipeListMissedIng)            
         })
-         
     }); 
-    
     })
 } 
 
