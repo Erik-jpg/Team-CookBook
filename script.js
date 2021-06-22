@@ -1,6 +1,6 @@
 var searchButton = document.querySelector("#search-button")
 var searchText = document.querySelector("#search-text") 
-var apiKey = "568b5f0eb0ba4b64bb8575454ae038bc" 
+var apiKey = "69de1083cd38422794fcdbf413bf552d" 
 var archive= JSON.parse(window.localStorage.getItem("archive"))|| []; 
 
 function getRecipe(event) {
@@ -54,7 +54,8 @@ function getRecipe(event) {
 
         recipeInstructions.addEventListener("click", getRecipeInstructions) 
 
-        allIngredients.addEventListener("click", getAllIngredients )
+        allIngredients.addEventListener("click", getAllIngredients ) 
+
         
         function getRecipeInstructions(){
             var instructionsUrl = "https://api.spoonacular.com/recipes/"+recipe.id+"/information?&apiKey=" + apiKey
@@ -76,6 +77,24 @@ function getRecipe(event) {
 
                 if (info.instructions == "" || info.instructions === null) {
                     alert("We're sorry, instructions are not available for this recipe")
+                } 
+                if (info.glutenFree === false) {
+                    var notGlutenFree = document.createElement("h2")
+                    notGlutenFree.classList = "container has-text-danger-dark" 
+                    notGlutenFree.textContent = "* Not Gluten Free *" 
+                    recipeListBody.appendChild(notGlutenFree)
+                } 
+                if (info.vegetarian === false) {
+                    var notVegetarian = document.createElement("h2")
+                    notVegetarian.classList = "container has-text-danger-dark" 
+                    notVegetarian.textContent = "* Not Vegetarian *"
+                    recipeListBody.appendChild(notVegetarian)
+                } 
+                if (info.vegan === false) {
+                    var notVegan = document.createElement("h2")
+                    notVegan.classList = "container has-text-danger-dark" 
+                    notVegan.textContent = "* Not Vegan *" 
+                    recipeListBody.appendChild(notVegan)
                 }
             }) 
         } 
