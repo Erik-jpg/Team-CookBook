@@ -38,6 +38,7 @@ function getRecipe(ingredientWant, ingredientNotWant){
         console.log(data.results.length);
         for(var i=0; i < (data.results.length); i++)
           createRecipeList(data.results[i], i);
+          recipeDetail
        
       });
     }
@@ -48,6 +49,8 @@ function getRecipe(ingredientWant, ingredientNotWant){
   });
 }
 
+
+// Create recipe 
 function createRecipeList(result, index){
    
    
