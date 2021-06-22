@@ -1,5 +1,7 @@
 // console.log("hello world")
-const saveBtn = document.querySelector("#start-btn");
+document.addEventListener('DoMContentLoaded', function() {});
+
+const saveBtn = document.querySelector("#saveBtn");
 const deleteBtn = document.querySelector(".is-danger");
 const form = document.querySelector("#recipeName");
 const form1 = document.querySelector("#recipeCards");
@@ -8,7 +10,7 @@ const userRecipes = document.querySelector("#userCookbook")
 const getButton = document.querySelector(".is-link");
 let recipe = {};
 // const dataKey = document.getElementById("recipeName").value= recipe;
-const recipe_deserialized = JSON.stringify(localStorage.getItem('recipe', form));
+// const recipe_deserialized = JSON.stringify(localStorage.getItem('recipe', form));
 // const recipe_serialized = JSON.stringify(localStorage.setItem('recipe', form));
 
 // console.log(localStorage);
@@ -20,7 +22,7 @@ const recipe_deserialized = JSON.stringify(localStorage.getItem('recipe', form))
 //         recipe.push({"ingredients":"flour, sugar, apples"});
 //         };
         
-      
+console.log(saveBtn);
     
  
 function handleRecipe() {
@@ -45,12 +47,12 @@ function recipeDisplayCheck() {
     userRecipes.value = "Your, " + recipe;
   }
 }
-saveBtn.addEventListener("click", () => {
-    preventDefault();
+saveBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     setRecipe();
     reset();
 });
-console.log(saveBtn);
+
   //this was in the addEventListener: function(e)
 //   console.log(recipeDisplayCheck());
 //   localStorage.setItem(form.value, form1.value);  
@@ -73,23 +75,23 @@ getButton.addEventListener("click", function recipeDisplayCheck() {
   }
 });
 //Lets see if this generates a list 
-// var data = Object.assign({}, localStorage);
+var data = Object.assign({}, localStorage);
 var archive = [];
 
 function allStorage() {
       keys = Object.keys(localStorage),
       i = 0, key;
 
-  // for (key = keys[i]; i++) {
-  //     archive.push( key + '=' + localStorage.getItem(key));
-  // }
-//   return archive;
-// }
+  for (key = keys[i]; i++;) {
+      archive.push( key + '=' + localStorage.getItem(key));
+  }
+  return archive;
+}
 
 document.querySelector('#recipeCard0').innerText = archive;
-const element = archive[i];
-for (let i = 0; i < archive.length; i++) {
-  }return archive[i];
-};
-console.log(archive);
-how to cause an error
+const localStorage = archive[i];
+for (let i = 0; i < archive.length; i++); {
+  // return archive[i];
+  };
+
+// console.log(archive);
