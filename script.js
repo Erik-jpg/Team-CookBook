@@ -1,21 +1,27 @@
 var searchButton = document.querySelector("#search-button")
 var searchText = document.querySelector("#search-text") 
+var searchTextAllergy = document.querySelector("#search-text_allergy") 
 var apiKey = "69de1083cd38422794fcdbf413bf552d" 
 var archive= JSON.parse(window.localStorage.getItem("archive"))|| []; 
 
 function getRecipe(event) {
     event.preventDefault()
     console.log(searchText.value)
+    var ingredientWant = searchText.value
+    var ingredientNotWant = searchTextAllergy.value
     var recipeList = document.querySelector("#recipe-list")
     recipeList.innerHTML=""
-    var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients="+searchText.value+"&apiKey="+apiKey
+    // var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients="+searchText.value+"&apiKey="+apiKey
+    
+    var requestUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredientWant}&number=10&intolerances=${ingredientNotWant}&apiKey=${apiKey}`
+ 
     fetch(requestUrl)
     .then(function (response){
         return response.json();
     }) 
     .then(function(data) {
     console.log(data) 
-    data.forEach(function(recipe){
+    data.results.forEach(function(recipe){
         var recipeListCard = document.createElement("div") 
         var recipeListBody = document.createElement("div")
         var recipeListPhoto = document.createElement("img")
@@ -23,7 +29,7 @@ function getRecipe(event) {
         var recipeListMissingIngTitle = document.createElement("h3") 
         var recipeInstructions = document.createElement("button") 
         var allIngredients = document.createElement("button") 
-        var missedIngredients = recipe.missedIngredients 
+        // var missedIngredients = recipe.missedIngredients 
     
         recipeListCard.classList = "column is-one-third"
         recipeListBody.classList = "has-background-light pl-6" 
@@ -129,15 +135,16 @@ function getRecipe(event) {
             })
         }
         //console.log(recipe.missedIngredients[0].name)
-        missedIngredients.forEach(function(ingredient){
-            var recipeListMissedIng = document.createElement("h4") 
+        // missedIngredients.forEach(function(ingredient){
+        //     var recipeListMissedIng = document.createElement("h4") 
 
-            recipeListMissedIng.classList = "has-text-primary-dark" 
+        //     recipeListMissedIng.classList = "has-text-primary-dark" 
 
-            recipeListMissedIng.textContent = ingredient.name 
+        //     recipeListMissedIng.textContent = ingredient.name 
 
-            recipeListBody.appendChild(recipeListMissedIng)            
-        })
+        //     recipeListBody.appendChild(recipeListMissedIng)            
+        // }
+        // )
     }); 
     })
 } 
