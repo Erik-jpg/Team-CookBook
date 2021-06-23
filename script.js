@@ -1,21 +1,27 @@
 var searchButton = document.querySelector("#search-button")
 var searchText = document.querySelector("#search-text") 
-var apiKey = "568b5f0eb0ba4b64bb8575454ae038bc" 
+var searchTextAllergy = document.querySelector("#search-text_allergy") 
+var apiKey = "69de1083cd38422794fcdbf413bf552d" 
 var archive= JSON.parse(window.localStorage.getItem("archive"))|| []; 
 
 function getRecipe(event) {
     event.preventDefault()
     console.log(searchText.value)
+    var ingredientWant = searchText.value
+    var ingredientNotWant = searchTextAllergy.value
     var recipeList = document.querySelector("#recipe-list")
     recipeList.innerHTML=""
-    var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients="+searchText.value+"&apiKey="+apiKey
+    // var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients?ingredients="+searchText.value+"&apiKey="+apiKey
+    
+    var requestUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredientWant}&number=10&intolerances=${ingredientNotWant}&apiKey=${apiKey}`
+ 
     fetch(requestUrl)
     .then(function (response){
         return response.json();
     }) 
     .then(function(data) {
     console.log(data) 
-    data.forEach(function(recipe){
+    data.results.forEach(function(recipe){
         var recipeListCard = document.createElement("div") 
         var recipeListBody = document.createElement("div")
         var recipeListPhoto = document.createElement("img")
@@ -23,10 +29,10 @@ function getRecipe(event) {
         var recipeListMissingIngTitle = document.createElement("h3") 
         var recipeInstructions = document.createElement("button") 
         var allIngredients = document.createElement("button") 
-        var missedIngredients = recipe.missedIngredients 
+        // var missedIngredients = recipe.missedIngredients 
     
-        recipeListCard.classlist = "card"
-        recipeListBody.classList = "has-background-light" 
+        recipeListCard.classList = "column is-one-third"
+        recipeListBody.classList = "has-background-light pl-6" 
         recipeListTitle.classList = "title" 
         recipeInstructions.classList = "button" 
         allIngredients.classList = "button"
@@ -54,7 +60,8 @@ function getRecipe(event) {
 
         recipeInstructions.addEventListener("click", getRecipeInstructions) 
 
-        allIngredients.addEventListener("click", getAllIngredients )
+        allIngredients.addEventListener("click", getAllIngredients ) 
+
         
         function getRecipeInstructions(){
             var instructionsUrl = "https://api.spoonacular.com/recipes/"+recipe.id+"/information?&apiKey=" + apiKey
@@ -66,7 +73,7 @@ function getRecipe(event) {
                 console.log(info) 
                 var cookingInstructions = document.createElement("h5") 
 
-                cookingInstructions.classList = "container" 
+                cookingInstructions.classList = "is-half" 
 
                 cookingInstructions.textContent = info.instructions
 
@@ -76,6 +83,24 @@ function getRecipe(event) {
 
                 if (info.instructions == "" || info.instructions === null) {
                     alert("We're sorry, instructions are not available for this recipe")
+                } 
+                if (info.glutenFree === false) {
+                    var notGlutenFree = document.createElement("h2")
+                    notGlutenFree.classList = "container has-text-danger-dark" 
+                    notGlutenFree.textContent = "* Not Gluten Free *" 
+                    recipeListBody.appendChild(notGlutenFree)
+                } 
+                if (info.vegetarian === false) {
+                    var notVegetarian = document.createElement("h2")
+                    notVegetarian.classList = "container has-text-danger-dark" 
+                    notVegetarian.textContent = "* Not Vegetarian *"
+                    recipeListBody.appendChild(notVegetarian)
+                } 
+                if (info.vegan === false) {
+                    var notVegan = document.createElement("h2")
+                    notVegan.classList = "container has-text-danger-dark" 
+                    notVegan.textContent = "* Not Vegan *" 
+                    recipeListBody.appendChild(notVegan)
                 }
             }) 
         } 
@@ -106,25 +131,21 @@ function getRecipe(event) {
                     recipeListBody.appendChild(unitMeasureNumber) 
                     unitMeasureNumber.appendChild(unitMeasure)
                     unitMeasureNumber.appendChild(specificIngredient)
-                    
-                    
                 }
             })
-
         }
         //console.log(recipe.missedIngredients[0].name)
-        missedIngredients.forEach(function(ingredient){
-            var recipeListMissedIng = document.createElement("h4") 
+        // missedIngredients.forEach(function(ingredient){
+        //     var recipeListMissedIng = document.createElement("h4") 
 
-            recipeListMissedIng.classList = "has-text-primary-dark" 
+        //     recipeListMissedIng.classList = "has-text-primary-dark" 
 
-            recipeListMissedIng.textContent = ingredient.name 
+        //     recipeListMissedIng.textContent = ingredient.name 
 
-            recipeListBody.appendChild(recipeListMissedIng)            
-        })
-         
+        //     recipeListBody.appendChild(recipeListMissedIng)            
+        // }
+        // )
     }); 
-    
     })
 } 
 
