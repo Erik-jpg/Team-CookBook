@@ -75,7 +75,7 @@ function getRecipe(event) {
 
               cookingInstructions.classList = "is-half"
 
-              cookingInstructions.textContent = info.instructions
+              cookingInstructions.innerHTML = info.instructions
 
               recipeListBody.appendChild(cookingInstructions)
 
