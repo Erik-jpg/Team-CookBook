@@ -3,24 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cookbook</title>
+    <title>Dish Up - Team Cookbook's Take on the Pantry Raid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> 
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body class = "">
-    <header class ="has-background-dark py-3 pl-3">
-      <div class = "title has-text-light"> 
-        Search recipes by ingredient and/or intolerance
+    <main>
+      <div class="header-img">
+        <div class = "big-header">Dish Up</div>
+      </div>
+    </main>
+    <header class ="has-background-dark py-3 pl-3" id="header">
+      <div class = "title has-text-light" id="title-text"> 
+        Looking for Cooking Inspiration?<br>
+        Type in ingredients you have in your fridge or pantry and get ready to dish up!
       </div>  
     </header> 
-    <div class="field has-addons pt-2 pl-6 pr-6">
+    <div class="field has-addons pt-2 pl-6">
+      <div class="control" id="sub-text">
+        <input class="input" id="search-text" type="text" placeholder="Apples, sugar, butter, etc"><br>
+        Have an allergy or intolerance? Make sure to include it to personalize your recipe search.
+        <input class="input" id="search-text_allergy" type="text" placeholder="Gluten, nuts, etc">
       <div class="control">
-        <input class="input" id= "search-text" type="text" placeholder="apples,sugar,etc">
-        <input class="input" id= "search-text_allergy" type="text" placeholder="gluten,oil,etc">
-      </div>
-      <div class="control">
-        <a class="button is-info" id=search-button>
-          Search
+        <a class="button is-info" id="search-button">
+          Get Cooking
         </a>
       </div>
     </div>

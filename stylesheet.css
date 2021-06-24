@@ -1,0 +1,69 @@
+body {
+    background-color: #131811;
+}
+
+/*Large Dish Up Header with pizza image*/
+
+.header-img {
+    width: 100%;
+    height: 64em;
+    background: url('https://cdn-cajkg.nitrocdn.com/ZJzLelPaQQUYcIzKvveTxTAioLgFVwpU/assets/static/optimized/rev-cd29551/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg');
+    background-size: cover;
+}
+
+.big-header {
+    font-size: 15em !important;
+    font-family: 'Fredericka the Great', cursive;
+    background: -webkit-linear-gradient(#ff5e00, #FFBD3C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: right;
+    padding: 1.75em 0.5em 0 0;
+}
+
+/*Main heading text*/
+
+#header {
+    background-color: #A8260B !important;
+    margin: 0 0 0.2em 0 !important;
+    position: relative;
+}
+
+#title-text {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+.control {
+    padding: 0 0 20px !important;
+}
+
+#sub-text {
+    color: #ffffff !important; 
+    font-family: 'Oswald', sans-serif !important;
+    font-size: larger;
+}
+
+/*Search bar and button text*/
+
+#search-text {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+#search-text_allergy {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+#search-button {
+    background-color: #E7801F !important;
+    color: #ffffff !important;
+    font-family: 'Oswald', sans-serif !important;
+}
+
+/*Scaling the screen size*/
+
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
