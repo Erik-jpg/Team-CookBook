@@ -164,7 +164,8 @@ const userCookbook = document.querySelector("#userCookbook");
 //to view stored items
 for (var key in localStorage) {
   console.log(key, localStorage[key]);
-  localStorage[key].value = document.querySelector("#userCookbook");
+  document.querySelector("#userCookbook").value = localStorage[key];
+  console.log(userCookbook);
 }
 //save button
 document.querySelector("#saveBtn").addEventListener("click", (e) => {
@@ -184,6 +185,7 @@ document.querySelector("#getBtn").addEventListener("click", function () {
   printItem(recipeName.key, recipeCards.value);
 });
 
+//get recipe
 function printItem(localStorage) {
   localStorage.getItem(recipeName.key, recipeCards.value).value =
     "userCookbook";
@@ -195,13 +197,13 @@ function reset() {
 }
 //to removeItem (delete)
 document.querySelector("#deleteBtn").addEventListener("click", function (e) {
-  deleteRecipe();
+  deleteRecipe(localStorage);
 });
 
 function deleteRecipe() {
   localStorage.removeItem(recipeName.key, recipeCards.value);
   document.querySelector("#cardHolder").value = recipeName.key;
-  console.log(recipeName.key);
+  // console.log(localStorage);
 }
 
 //a way to view stored recipes (need to make visual in html element)
@@ -218,4 +220,5 @@ function recipeDisplayCheck() {
     const recipe = localStorage.getItem("recipeName");
     userRecipes.value = "Your, " + recipe;
   }
+  document.querySelector("#userCookbook").value = localStorage[key];
 }
