@@ -35,7 +35,24 @@
     <div class = "has-background-light columns is-multiline" id="recipe-list">
 
     </div> 
-    <script src="script.js"></script> 
+
     
-  </body>
+  
+  <div id="footer">
+    <h1>CookBook App!</h1>
+    <h2>Your recipes here.</h2>
+    <textarea class="textarea is-small" id="recipeName" name='userInput' placeholder="please name your recipe"></textarea>
+    <textarea class="textarea is-large" id="recipeCards" placeholder="save your recipes here..."></textarea>
+    <a id="saveBtn" class="button is-primary">Save</a>
+    <a class="button is-link" id="getBtn">Grab a Recipe</a>
+    <a class="button is-danger" id="deleteBtn">Delete</a></a>
+<textarea class="retrievedCards" id="cardHolder" placeholder="Please enter the name of the recipe you would like to delete."></textarea>
+<div id="userCookbook" class="RecipeStorage">
+    <textarea id="keyEntry" placeholder= "Please enter the name of the recipe you wish to view"></textarea>
+    <p id="recipeCard1" placeholder= "This is a demo recipeCards"></p>
+    <p id="recipeCards-2" placeholder= "This is a demo recipeCards"></p>
+</div>
+</div>
+<script src="./script.js"></script>
+</body>
 </html>

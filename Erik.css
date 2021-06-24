@@ -1,0 +1,10 @@
+/* /* h1 {
+    font-weight: bold;
+} */
+
+#recipeCards {
+    border-radius: 15;
+    box-shadow: bold;
+    padding: 10;
+    display: inline-block;
+}
