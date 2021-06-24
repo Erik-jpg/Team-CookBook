@@ -8,3 +8,7 @@
     padding: 10;
     display: inline-block;
 }
+
+#footer {
+    background: none repeat scroll 0 0;
+}
