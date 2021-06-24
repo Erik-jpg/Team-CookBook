@@ -129,3 +129,72 @@ function getRecipe(event) {
 } 
 
 searchButton.addEventListener("click", getRecipe)
+
+
+const recipeName = document.querySelector("#recipeName");
+const recipeCards = document.querySelector("#recipeCards");
+const saveBtn = document.querySelector("#saveBtn");
+const deleteBtn = document.querySelector("#deleteBtn");
+const getBtn = document.querySelector("#getBtn");
+const userCookbook = document.querySelector("#userCookbook");
+const data = localStorage;
+
+
+//to view stored items
+for(var key in data){
+  console.log(key, data[key]);
+  data[key].value = document.querySelector("#userCookbook");
+  }
+//save button
+document.querySelector("#saveBtn").addEventListener("click", (e) => {
+  handleRecipe();
+  reset(recipeName, recipeCards);
+  preventDefault ();
+});
+console.log('saveBtn');
+
+function handleRecipe() {
+  localStorage.setItem(recipeName.key, recipeCards.value);
+}
+
+//get button
+document.querySelector("#getBtn").addEventListener("click", function () {
+  printItem(recipeName.key, recipeCards.value);
+});
+
+function printItem(localStorage) {
+  localStorage.getItem(recipeName.key, recipeCards.value).value =
+    "userCookbook";
+}
+//to clear recipe entry
+function reset() {
+  (document.querySelector("#recipeName").value = ""),
+    (document.querySelector("#recipeCards").value = "");
+}
+//to removeItem (delete)
+document.querySelector("#deleteBtn").addEventListener("click", function (e) {
+  deleteRecipe();
+});
+
+function deleteRecipe() {
+  localStorage.removeItem(recipeName.key, recipeCards.value);
+  document.querySelector("#cardHolder").value = recipeName.key;
+  console.log(recipeName.key);
+}
+
+//a way to view stored recipes (need to make visual in html element)
+
+for (var i = 0, len = localStorage.length; i < len; ++i) {
+  console.log(localStorage.getItem(localStorage.key(i)));
+}
+document.querySelector("#keyEntry").value="Your saved recipes are: "+ localStorage.key(i);
+
+function preventDefault () {
+}
+
+function recipeDisplayCheck() {
+  if (localStorage.getItem("recipe")!==null) {
+    const recipe = localStorage.getItem("recipeName");
+    userRecipes.value = "Your, " + recipe;
+  }
+}
