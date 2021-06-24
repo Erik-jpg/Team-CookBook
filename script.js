@@ -1,7 +1,7 @@
 var searchButton = document.querySelector("#search-button")
 var searchText = document.querySelector("#search-text") 
 var searchTextAllergy = document.querySelector("#search-text_allergy") 
-var apiKey = "69de1083cd38422794fcdbf413bf552d" 
+var apiKey = "b83112bb69ba4c30bbb2e07f26f43390" 
 var archive= JSON.parse(window.localStorage.getItem("archive"))|| []; 
 
 function getRecipe(event) {
@@ -26,17 +26,17 @@ function getRecipe(event) {
         var recipeListBody = document.createElement("div")
         var recipeListPhoto = document.createElement("img")
         var recipeListTitle = document.createElement("h2") 
-        var recipeListMissingIngTitle = document.createElement("h3") 
+        //var recipeListMissingIngTitle = document.createElement("h3") 
         var recipeInstructions = document.createElement("button") 
         var allIngredients = document.createElement("button") 
         // var missedIngredients = recipe.missedIngredients 
     
         recipeListCard.classList = "column is-one-third"
-        recipeListBody.classList = "has-background-light pl-6" 
+        recipeListBody.classList = "has-background-light pl-6 pr-6" 
         recipeListTitle.classList = "title" 
         recipeInstructions.classList = "button" 
         allIngredients.classList = "button"
-        recipeListMissingIngTitle.classList = "subtitle" 
+        //recipeListMissingIngTitle.classList = "subtitle" 
         recipeListPhoto.classList = "box" 
 
         recipeListPhoto.setAttribute("src", recipe.image) 
@@ -50,13 +50,13 @@ function getRecipe(event) {
         recipeListBody.appendChild(recipeListPhoto) 
         recipeListBody.appendChild(recipeInstructions)
         recipeListBody.appendChild(allIngredients)
-        recipeListBody.appendChild(recipeListMissingIngTitle)
+        //recipeListBody.appendChild(recipeListMissingIngTitle)
          
         console.log('-------', recipe);
         recipeListTitle.textContent = `${recipe.title}`
-        recipeListMissingIngTitle.textContent = "Other Ingredients You Will Need:" 
+        //recipeListMissingIngTitle.textContent = "Other Ingredients You Will Need:" 
         recipeInstructions.textContent = "Instructions" 
-        allIngredients.textContent = "All Ingredients"
+        allIngredients.textContent = "Ingredients"
 
         recipeInstructions.addEventListener("click", getRecipeInstructions) 
 
