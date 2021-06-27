@@ -75,7 +75,7 @@ function getRecipe(event) {
 
               cookingInstructions.classList = "is-half"
 
-              cookingInstructions.textContent = info.instructions
+              cookingInstructions.innerHTML = info.instructions
 
               recipeListBody.appendChild(cookingInstructions)
 
@@ -235,5 +235,4 @@ function recipeDisplayCheck() {
     const recipe = localStorage.getItem("recipeName");
     userRecipes.value = "Your, " + recipe;
   }
-  document.querySelector("#userCookbook").value = localStorage[key];
-}
+
