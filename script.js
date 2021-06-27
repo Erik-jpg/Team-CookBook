@@ -218,22 +218,7 @@ function deleteRecipe() {
   console.log(removeRecipe);
   localStorage.setItem('userRecipe', JSON.stringify(removeRecipe));
   displayRecipes();
-  // console.log(localStorage);
 }
 
-//a way to view stored recipes (need to make visual in html element)
-
-for (var i = 0, len = localStorage.length; i < len; ++i) {
-  console.log(localStorage.getItem(localStorage.key(i)));
-}
-document.querySelector("#keyEntry").value = "Your saved recipes are: " + localStorage.key(i);
-
+//to prevent the default form being auto generated
 function preventDefault() {}
-
-function recipeDisplayCheck() {
-  if (localStorage.getItem("recipe") !== null) {
-    const recipe = localStorage.getItem("recipeName");
-    userRecipes.value = "Your, " + recipe;
-  }
-  document.querySelector("#userCookbook").value = localStorage[key];
-}
