@@ -1,58 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dish Up - Team Cookbook's Take on the Pantry Raid</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Oswald:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> 
-    <link rel="stylesheet" href="stylesheet.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Oswald:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="stylesheet.css" />
   </head>
-  <body class = "">
+
+  <body class="">
     <main>
       <div class="header-img">
-        <div class = "big-header">Dish Up</div>
+        <div class="big-header">Dish Up</div>
       </div>
     </main>
-    <header class ="has-background-dark py-3 pl-3" id="header">
-      <div class = "title has-text-light" id="title-text"> 
-        Looking for Cooking Inspiration?<br>
-        Type in ingredients you have in your fridge or pantry and get ready to dish up!
-      </div>  
-    </header> 
+    <header class="has-background-dark py-3 pl-3" id="header">
+      <div class="title has-text-light" id="title-text">
+        Looking for Cooking Inspiration?<br />
+        Type in ingredients you have in your fridge or pantry and get ready to
+        dish up!
+      </div>
+    </header>
     <div class="field has-addons pt-2 pl-6">
       <div class="control" id="sub-text">
-        <input class="input" id="search-text" type="text" placeholder="Apples, sugar, butter, etc"><br>
-        Have an allergy or intolerance? Make sure to include it to personalize your recipe search.
-        <input class="input" id="search-text_allergy" type="text" placeholder="Gluten, nuts, etc">
-      <div class="control">
-        <a class="button is-info" id="search-button">
-          Get Cooking
-        </a>
+        <input
+          class="input"
+          id="search-text"
+          type="text"
+          placeholder="Apples, sugar, butter, etc"
+        /><br />
+        Have an allergy or intolerance? Make sure to include it to personalize
+        your recipe search.
+        <input
+          class="input"
+          id="search-text_allergy"
+          type="text"
+          placeholder="Gluten, nuts, etc"
+        />
+        <div class="control">
+          <a class="button is-info" id="search-button"> Get Cooking </a>
+        </div>
       </div>
+
+      <div
+        class="has-background-light columns is-multiline"
+        id="recipe-list"
+      ></div>
     </div>
 
-    <div class = "has-background-light columns is-multiline" id="recipe-list">
-
-    </div> 
-
-    
-  
-  <div id="footer">
-    <h1>CookBook App!</h1>
-    <h2>Your recipes here.</h2>
-    <textarea class="textarea is-small" id="recipeName" name='userInput' placeholder="please name your recipe"></textarea>
-    <textarea class="textarea is-large" id="recipeCards" placeholder="save your recipes here..."></textarea>
-    <a id="saveBtn" class="button is-primary">Save</a>
-    <a class="button is-link" id="getBtn">Grab a Recipe</a>
-    <a class="button is-danger" id="deleteBtn">Delete</a></a>
-<textarea class="retrievedCards" id="cardHolder" placeholder="Please enter the name of the recipe you would like to delete."></textarea>
-<div id="userCookbook" class="RecipeStorage">
-    <textarea id="keyEntry" placeholder= "Please enter the name of the recipe you wish to view"></textarea>
-    <p id="recipeCard1" placeholder= "This is a demo recipeCards"></p>
-    <p id="recipeCards-2" placeholder= "This is a demo recipeCards"></p>
-</div>
-</div>
-<script src="./script.js"></script>
-</body>
+    <div id="footer">
+      <h1>CookBook App!</h1>
+      <h2>Your recipes here.</h2>
+      <textarea
+        class="textarea is-small"
+        id="recipeName"
+        name="userInput"
+        placeholder="please name your recipe"
+      ></textarea>
+      <textarea
+        class="textarea is-large"
+        id="recipeCards"
+        placeholder="save your recipes here..."
+      ></textarea>
+      <a id="saveBtn" class="button is-primary">Save</a>
+      <a class="button is-link" id="getBtn">Grab a Recipe</a>
+      <a class="button is-danger" id="deleteBtn">Delete</a>
+      <textarea
+        class="retrievedCards"
+        id="cardHolder"
+        placeholder="Please enter the name of the recipe you would like to delete."
+      ></textarea>
+      <div id="userCookbook" class="RecipeStorage">
+        <ul
+          id="keyEntry"
+          placeholder="Please enter the name of the recipe you wish to view"
+        ></ul>
+        <p id="recipeCard1" placeholder="This is a demo recipeCards"></p>
+        <p id="recipeCards-2" placeholder="This is a demo recipeCards"></p>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>

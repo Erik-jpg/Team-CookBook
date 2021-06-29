@@ -158,14 +158,23 @@ const saveBtn = document.querySelector("#saveBtn");
 const deleteBtn = document.querySelector("#deleteBtn");
 const getBtn = document.querySelector("#getBtn");
 const userCookbook = document.querySelector("#userCookbook");
-
+const deleteSavedRecipe = document.querySelector("#cardHolder");
 
 
 //to view stored items
-for (var key in localStorage) {
-  console.log(key, localStorage[key]);
-  localStorage[key].value = document.querySelector("#userCookbook");
+function displayRecipes () {
+  const retrievedRecipes = JSON.parse(localStorage.getItem("userRecipe")) || [];
+  document.querySelector("#keyEntry").innerHTML = "";
+for (let i = 0; i < retrievedRecipes.length; i++) {
+  const element = retrievedRecipes[i];
+  let li = document.createElement('li');
+  li.textContent= element.recipe;
+  document.querySelector("#keyEntry").append(li);
 }
+}
+
+displayRecipes();
+
 //save button
 document.querySelector("#saveBtn").addEventListener("click", (e) => {
   handleRecipe();
@@ -175,8 +184,12 @@ document.querySelector("#saveBtn").addEventListener("click", (e) => {
 
 
 function handleRecipe() {
-  const recipeName = document.querySelector("#recipeName").value
-  localStorage.setItem(recipeName, recipeCards.value);
+  let savedRecipe = JSON.parse(localStorage.getItem("userRecipe")) || [];
+  const recipeName = document.querySelector("#recipeName").value;
+  const recipeObject = {recipe:recipeName, ingredients:recipeCards.value};
+  savedRecipe.push(recipeObject)
+  localStorage.setItem('userRecipe', JSON.stringify(savedRecipe));
+  displayRecipes();
 }
 
 //get button
@@ -184,6 +197,7 @@ document.querySelector("#getBtn").addEventListener("click", function () {
   printItem(recipeName.key, recipeCards.value);
 });
 
+//get recipe
 function printItem(localStorage) {
   localStorage.getItem(recipeName.key, recipeCards.value).value =
     "userCookbook";
@@ -195,13 +209,16 @@ function reset() {
 }
 //to removeItem (delete)
 document.querySelector("#deleteBtn").addEventListener("click", function (e) {
-  deleteRecipe();
+  deleteRecipe(localStorage);
 });
 
 function deleteRecipe() {
-  localStorage.removeItem(recipeName.key, recipeCards.value);
-  document.querySelector("#cardHolder").value = recipeName.key;
-  console.log(recipeName.key);
+  let removeRecipe = JSON.parse(localStorage.getItem("userRecipe")) || [];
+  removeRecipe = removeRecipe.filter(index => index.recipe!==deleteSavedRecipe.value);
+  console.log(removeRecipe);
+  localStorage.setItem('userRecipe', JSON.stringify(removeRecipe));
+  displayRecipes();
+  // console.log(localStorage);
 }
 
 //a way to view stored recipes (need to make visual in html element)
@@ -218,4 +235,4 @@ function recipeDisplayCheck() {
     const recipe = localStorage.getItem("recipeName");
     userRecipes.value = "Your, " + recipe;
   }
-}
+
