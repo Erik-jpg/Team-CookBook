@@ -1,12 +1,4 @@
-.container {
-    flex-wrap: wrap;
-    margin-right: 600px;
-}
-
 .button {
-    border: none;
-    outline: none;
-    padding: 10px 16px;
     background-color: #f1f1f1;
     cursor: pointer;
 }
