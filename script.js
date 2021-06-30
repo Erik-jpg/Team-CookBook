@@ -75,7 +75,7 @@ function getRecipe(event) {
 
               cookingInstructions.classList = "is-half"
 
-              cookingInstructions.textContent = info.instructions
+              cookingInstructions.innerHTML = info.instructions
 
               recipeListBody.appendChild(cookingInstructions)
 
@@ -222,3 +222,10 @@ function deleteRecipe() {
 
 //to prevent the default form being auto generated
 function preventDefault() {}
+
+function recipeDisplayCheck() {
+  if (localStorage.getItem("recipe") !== null) {
+    const recipe = localStorage.getItem("recipeName");
+    userRecipes.value = "Your, " + recipe;
+  }
+}
