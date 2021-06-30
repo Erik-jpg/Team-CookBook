@@ -200,7 +200,7 @@ document.querySelector("#getBtn").addEventListener("click", function () {
 //get recipe
 function printItem(localStorage) {
   localStorage.getItem(recipeName.key, recipeCards.value).value =
-    "userCookbook";
+    "recipeCards";
 }
 //to clear recipe entry
 function reset() {
