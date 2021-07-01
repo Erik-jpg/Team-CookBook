@@ -200,7 +200,7 @@ document.querySelector("#getBtn").addEventListener("click", function () {
 //get recipe
 function printItem(localStorage) {
   localStorage.getItem(recipeName.key, recipeCards.value).value =
-    "userCookbook";
+    "recipeCards";
 }
 //to clear recipe entry
 function reset() {
@@ -218,16 +218,9 @@ function deleteRecipe() {
   console.log(removeRecipe);
   localStorage.setItem('userRecipe', JSON.stringify(removeRecipe));
   displayRecipes();
-  // console.log(localStorage);
 }
 
-//a way to view stored recipes (need to make visual in html element)
-
-for (var i = 0, len = localStorage.length; i < len; ++i) {
-  console.log(localStorage.getItem(localStorage.key(i)));
-}
-document.querySelector("#keyEntry").value = "Your saved recipes are: " + localStorage.key(i);
-
+//to prevent the default form being auto generated
 function preventDefault() {}
 
 function recipeDisplayCheck() {
@@ -235,4 +228,4 @@ function recipeDisplayCheck() {
     const recipe = localStorage.getItem("recipeName");
     userRecipes.value = "Your, " + recipe;
   }
-
+};
