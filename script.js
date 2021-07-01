@@ -235,4 +235,4 @@ function recipeDisplayCheck() {
     const recipe = localStorage.getItem("recipeName");
     userRecipes.value = "Your, " + recipe;
   }
-
+};

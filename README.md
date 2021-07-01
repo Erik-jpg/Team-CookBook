@@ -11,4 +11,4 @@ HTML, Bulma CSS Framework, JavaScript, jQuery, Local Storage, Spoonacular API, F
 
 Challenges: Learning Figma, using Local Storage, Blocking Recipes based on Allergies, Searching by ingredients, and adding Images.
 
-Things to add: Readable Saved Recipe List, Toggle Switches, 
+Things to add: Retrievable saved Recipes, Toggle Switches, 
